@@ -113,5 +113,7 @@ html
                               a[href="http://www.mirthcorp.com/company/employment-opportunities"] Employment Opportunities
                             li.page_item.page-item-135
                               a[href="http://www.mirthcorp.com/company/contact"] Contact
-      / == render 'index' 
+      
       == Slim::Template.new("templates/index.slim", {}).render(self)
+  
+  /! Page generated on #{Time.now.to_s}
