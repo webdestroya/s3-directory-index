@@ -2,6 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     excon (0.37.0)
     fog (1.22.1)
       fog-brightbox
@@ -42,6 +45,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv (~> 0.11.1)
   fog (~> 1.22.1)
   rake (~> 10.3.2)
   slim (~> 2.0.2)

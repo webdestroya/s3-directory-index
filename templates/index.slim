@@ -1,0 +1,40 @@
+
+
+#filelist
+  table[cellspacing="0" cellpadding="0" border="0" width="100%"]
+    tr
+      td[width="24"]
+      td: strong Name
+      td: strong Last Modified
+      td: strong Size
+      td: strong Description
+    
+    tr: td[colspan="5"]
+      hr
+
+
+    - if has_parent?
+      tr
+        td: img[src="/archive/images/back.gif" alt="[DIR]" border="0"]
+        td: a[href="#{parent}"] Parent Directory
+        td[colspan="3"]
+
+    - folders.each do |folder| 
+      tr
+        td: img[src="/archive/images/folder.gif" alt="[DIR]" border="0"]
+        td: a[href="#{folder}/"] = folder 
+        td --
+        td --
+        td
+
+    - files.each do |file| 
+      - next if file.content_length == 0 
+      tr
+        td: img[src="/archive/images/binary.gif" alt="[BIN]" border="0"]
+        td: a[href="/#{file.key}"] = File.basename(file.key)
+        td = file.last_modified.to_date_header.gsub(/\+0000/, 'UTC')
+        td = number_to_human_size(file.content_length)
+        td 
+
+    tr: td[colspan="5"]
+      hr
